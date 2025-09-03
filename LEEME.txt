@@ -1,0 +1,18 @@
+Sistema de Registro de productos
+
+Tecnologías utilizadas:
+
+- PHP (Versión 8.2.12).
+- PostgreSQL (Versión 17.6).
+- JavaScript.
+- HTML.
+- CSS.
+
+Instalación:
+
+1.- Clonar el repositorio GITHUB
+
+2.- Crear una base de datos en PostgreSQL llamada: system_products_db, y ejecutar el archivo bd_sentences/sentences.sql que se encuentra en la raíz del proyecto.
+NOTA: si es necesario editar php/database_connection.php con los datos del usuario (Usuario, contraseña, puerto).
+
+3.- Finalmente ejecutar el archivo index.php.
