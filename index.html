@@ -1,0 +1,469 @@
+<!DOCTYPE html> <html lang="es"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paula Fernández Pinilla | Desarrolladora</title>
+
+<meta name="description" content="Portafolio de Paula Fernández Pinilla. Proyectos de desarrollo web utilizando PHP, JavaScript, CSS y PostgreSQL.">
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #0f172a;
+        color: #e2e8f0;
+        line-height: 1.6;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    /* NAVBAR */
+    nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(15, 23, 42, 0.95);
+        border-bottom: 1px solid #1e293b;
+        z-index: 1000;
+    }
+
+    .nav-container {
+        max-width: 1100px;
+        margin: auto;
+        padding: 18px 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: #38bdf8;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 25px;
+        list-style: none;
+    }
+
+    .nav-links a {
+        color: #cbd5e1;
+        transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+        color: #38bdf8;
+    }
+
+    /* HERO */
+    .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 100px 25px 60px;
+        background:
+            radial-gradient(circle at top right, #164e63 0, transparent 35%),
+            radial-gradient(circle at bottom left, #1e3a8a 0, transparent 30%),
+            #0f172a;
+    }
+
+    .hero-content {
+        max-width: 800px;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.5rem, 7vw, 5rem);
+        margin-bottom: 15px;
+        color: white;
+    }
+
+    .hero h1 span {
+        color: #38bdf8;
+    }
+
+    .hero h2 {
+        font-size: 1.5rem;
+        color: #94a3b8;
+        font-weight: normal;
+        margin-bottom: 25px;
+    }
+
+    .hero p {
+        max-width: 650px;
+        margin: auto;
+        color: #cbd5e1;
+        font-size: 1.1rem;
+    }
+
+    .buttons {
+        margin-top: 35px;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .btn-primary {
+        background: #38bdf8;
+        color: #082f49;
+    }
+
+    .btn-primary:hover {
+        background: #7dd3fc;
+        transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+        border: 1px solid #38bdf8;
+        color: #38bdf8;
+    }
+
+    .btn-secondary:hover {
+        background: #38bdf8;
+        color: #082f49;
+    }
+
+    /* SECTIONS */
+    section {
+        max-width: 1100px;
+        margin: auto;
+        padding: 90px 25px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 40px;
+        color: white;
+        text-align: center;
+    }
+
+    .section-title span {
+        color: #38bdf8;
+    }
+
+    /* ABOUT */
+    .about {
+        text-align: center;
+    }
+
+    .about p {
+        max-width: 750px;
+        margin: auto;
+        color: #cbd5e1;
+        font-size: 1.05rem;
+    }
+
+    /* SKILLS */
+    .skills {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 20px;
+    }
+
+    .skill {
+        background: #1e293b;
+        border: 1px solid #334155;
+        border-radius: 12px;
+        padding: 25px;
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .skill:hover {
+        transform: translateY(-5px);
+        border-color: #38bdf8;
+    }
+
+    .skill h3 {
+        color: #38bdf8;
+        margin-bottom: 8px;
+    }
+
+    .skill p {
+        color: #94a3b8;
+        font-size: 0.9rem;
+    }
+
+    /* PROJECT */
+    .project {
+        max-width: 800px;
+        margin: auto;
+        background: #1e293b;
+        border: 1px solid #334155;
+        border-radius: 15px;
+        padding: 35px;
+    }
+
+    .project h3 {
+        color: #38bdf8;
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    .project p {
+        color: #cbd5e1;
+        margin-bottom: 20px;
+    }
+
+    .technologies {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 25px;
+    }
+
+    .tag {
+        background: #0f172a;
+        border: 1px solid #475569;
+        color: #7dd3fc;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+    }
+
+    /* CONTACT */
+    .contact {
+        text-align: center;
+    }
+
+    .contact p {
+        color: #94a3b8;
+        margin-bottom: 25px;
+    }
+
+    .contact-links {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    /* FOOTER */
+    footer {
+        border-top: 1px solid #1e293b;
+        text-align: center;
+        padding: 30px 20px;
+        color: #64748b;
+    }
+
+    /* MOBILE */
+    @media (max-width: 650px) {
+        .nav-links {
+            gap: 12px;
+            font-size: 0.85rem;
+        }
+
+        .nav-container {
+            padding: 15px;
+        }
+
+        .hero h2 {
+            font-size: 1.2rem;
+        }
+
+        section {
+            padding: 70px 20px;
+        }
+
+        .project {
+            padding: 25px;
+        }
+    }
+</style>
+
+</head> <body>
+<!-- NAVBAR -->
+<nav>
+    <div class="nav-container">
+        <div class="logo">Paula.dev</div>
+
+        <ul class="nav-links">
+            <li><a href="#sobre-mi">Sobre mí</a></li>
+            <li><a href="#habilidades">Habilidades</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+    <div class="hero-content">
+
+        <h1>Hola, soy <span>Paula</span></h1>
+
+        <h2>Desarrolladora Web</h2>
+
+        <p>
+            Me interesa el desarrollo de aplicaciones web y la creación
+            de soluciones funcionales, organizadas y orientadas a las
+            necesidades de los usuarios.
+        </p>
+
+        <div class="buttons">
+            <a class="btn btn-primary" href="#proyectos">
+                Ver mis proyectos
+            </a>
+
+
+            <a class="btn btn-secondary"
+               href="https://github.com/PaulaFernandezPinilla"
+               target="_blank">
+                GitHub
+            </a>
+        </div>
+
+    </div>
+</header>
+
+<!-- SOBRE MI -->
+<section id="sobre-mi" class="about">
+
+    <h2 class="section-title">
+        Sobre <span>mí</span>
+    </h2>
+
+    <p>
+        Soy Paula Fernández Pinilla y estoy desarrollando mis habilidades
+        en programación y desarrollo web. Me interesa seguir creciendo
+        profesionalmente, aprender nuevas tecnologías y participar en
+        proyectos donde pueda aportar mis conocimientos y continuar
+        adquiriendo experiencia.
+    </p>
+
+</section>
+
+<!-- HABILIDADES -->
+<section id="habilidades">
+
+    <h2 class="section-title">
+        Mis <span>habilidades</span>
+    </h2>
+
+    <div class="skills">
+
+        <div class="skill">
+            <h3>PHP</h3>
+            <p>Desarrollo backend y aplicaciones web.</p>
+        </div>
+
+        <div class="skill">
+            <h3>JavaScript</h3>
+            <p>Interactividad y funcionalidades en aplicaciones web.</p>
+        </div>
+
+        <div class="skill">
+            <h3>HTML & CSS</h3>
+            <p>Creación de interfaces web responsive.</p>
+        </div>
+
+        <div class="skill">
+            <h3>PostgreSQL</h3>
+            <p>Gestión y conexión con bases de datos.</p>
+        </div>
+
+        <div class="skill">
+            <h3>Git & GitHub</h3>
+            <p>Control de versiones y gestión de proyectos.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROYECTOS -->
+<section id="proyectos">
+
+    <h2 class="section-title">
+        Mi <span>proyecto</span>
+    </h2>
+
+    <div class="project">
+
+        <h3>Sistema de productos</h3>
+
+        <p>
+            Aplicación web desarrollada como proyecto para gestionar
+            información relacionada con productos. El proyecto incorpora
+            tecnologías de frontend y backend, junto con una base de datos
+            PostgreSQL.
+        </p>
+
+        <div class="technologies">
+            <span class="tag">PHP</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">CSS</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Git</span>
+        </div>
+
+        
+        <a
+            class="btn btn-primary"
+            href="https://github.com/PaulaFernandezPinilla/Proyecto-Registro-de-Productos.git"
+            target="_blank">
+            Ver código en GitHub
+        </a>
+
+    </div>
+
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="contact">
+
+    <h2 class="section-title">
+        <span>Contacto</span>
+    </h2>
+
+    <p>
+        ¿Te interesa conocer más sobre mi perfil o mis proyectos?
+    </p>
+
+    <div class="contact-links">
+
+        <!-- REEMPLAZA CON TU EMAIL -->
+        <a class="btn btn-primary"
+           href="pauli.06293@gmail.com">
+            Contactarme
+        </a>
+
+        <a class="btn btn-secondary"
+           href="https://github.com/PaulaFernandezPinilla"
+           target="_blank">
+            GitHub
+        </a>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>
+        © 2026 Paula Fernández Pinilla · Portafolio
+    </p>
+</footer>
+
+</body> </html>
